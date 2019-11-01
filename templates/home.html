@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/home-style.css">
+    <meta name="keywords" content="meetify, programming, meet, people, work">
+    <meta name="application-name" content="meetify">
+    <meta name="authors" content="hristo todorov, yanis yakimov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Meetify</title>
+</head>
+<body>
+    <header>
+        <a href="#default" class="logo">MEETIFY</a>
+        <div class="header-right">
+        <a href="{% url 'home' %}">НАЧАЛО</a>
+        <a href="{% url 'my_profile' %}">МОЯТ ПРОФИЛ</a>
+        <a href="{% url 'logout' %}">ИЗХОД</a>
+        </div>
+    </header>
+<div class="bs">
+</div>
+{% block content %}
+    <div class="search-div">
+    <form class="search" method="get" action="{% url 'search' %}">
+        <input type="text" name = "search_query" placeholder="Търси потребители по име, любими технологии и др.">
+        <button class="submit" name="submit" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    </div>
+<br>
+<br>
+<div class="display-users">
+
+  {% for user in users %}
+    <a href="user/{{user.username}}">
+    <div class="user-info">
+        <div class="avatar">
+        <br>
+        <br>
+        <img src="/media/{{ user.profile.avatar }}">
+        </div>
+            <br>
+            <br>
+            <hr>
+            <br>
+        
+            <h1>{{user.username}}</h1>
+            <h2>{{user.get_full_name}}</h2>
+            <h2>{{user.profile.tags}}</h2>
+        <br>
+        <br>
+        
+    
+    </div>
+    </a>
+  {% endfor %}
+</div>
+<footer>
+<div class="footer-bs">
+</div>
+<p>Copyright &copy; 2019 | Изработен от Христо Тодоров и Янис Якимов | Проект №560 за НОИТ</p>
+</footer>
+{% endblock %}
+</body>
+</html>

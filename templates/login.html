@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="bg" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/login-register-style.css">
+    <meta name="keywords" content="meetify, programming, meet, people, work">
+    <meta name="application-name" content="meetify">
+    <meta name="authors" content="hristo todorov, yanis yakimov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Meetify</title>
+</head>
+<body>
+<div class="content">
+<div class="bs">
+</div>
+    <div class="login-form">
+<h2>ВХОД</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="login-text">
+
+        <input type=text id="username" name="username" placeholder="Потребителско име">
+        <br>
+        <br>
+        <br>
+        <input type="password" id="password" name="password" placeholder="Парола">
+    </div>
+      <div class="login-errors">
+
+        {{ form.username.errors }}
+        {{ form.password.errors }}
+      </div>
+    <div class="btn">
+    <button type="submit" class="submit">Вход</button>
+        <h4>Все още нямаш регистрация ?</h4>
+      <h4><a href="/signup">Създай акаунт</a></h4>
+      <br>
+    </div>
+  </form>
+</div>
+</div>
+
+</body>
+</html>

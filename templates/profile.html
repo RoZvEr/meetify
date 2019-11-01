@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="bg">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/view_profile-style.css">
+    <meta name="keywords" content="meetify, programming, meet, people, work">
+    <meta name="application-name" content="meetify">
+    <meta name="authors" content="hristo todorov, yanis yakimov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="icons" content="https://icons8.com">
+    <meta charset="UTF-8">
+    <title>Meetify</title>
+</head>
+<body>
+<header>
+        <a href="#default" class="logo">MEETIFY</a>
+        <div class="header-right">
+        <a href="{% url 'home' %}">НАЧАЛО</a>
+        <a href="{% url 'my_profile' %}">МОЯТ ПРОФИЛ</a>
+        <a href="{% url 'logout' %}">ИЗХОД</a>
+  </div>
+</header>
+<div class="content">
+{% block content %}
+    <div class="avatar">
+        <img src="/media/{{ user.profile.avatar }}">
+    </div>
+    <div class="info">
+        <div class="info-fields">
+        <h2>Потребителско име: {{ user.username }}</h2>
+        <h2>Име: {{user.get_full_name}}</h2>
+        <h2>Описание</h2>
+        <div class="bio">
+        <p>{{ user.profile.bio|linebreaks }}</p>
+        </div>
+        {% if user.profile.gender is 1 %}
+            <p><strong>Пол:</strong> Мъж</p>
+        {% elif user.profile.gender is 2 %}
+            <p><strong>Жена:</strong> Мъж</p>
+        {% else %}
+            <p><strong>Пол:</strong> Неопределен</p>
+        {% endif %}
+        {% if user.profile.status is 1 %}
+            <p><strong>Статус:</strong> Ученик</p>
+        {% elif user.profile.status is 2 %}
+            <p><strong>Статус:</strong> Студент</p>
+        {% elif user.profile.status is 3 %}
+            <p><strong>Статус:</strong> Работещ</p>
+        {% else %}
+            <p><strong>Статус:</strong> Любител</p>
+        {% endif %}  
+        <br>
+        <strong>Любими технологии:</strong>
+        <p>{{ user.profile.tags }}</p>
+        <br>
+        <div class="social">
+        <a href="{{ user.profile.website }}"><img src="https://img.icons8.com/dusk/96/000000/internet.png"></a>
+        <a href="{{ user.profile.github }}"><img src="https://img.icons8.com/color/96/000000/github.png"></a>
+        <a href="{{ user.profile.linkedin }}"><img src="https://img.icons8.com/color/96/000000/linkedin.png"></a>
+        <a href="{{ user.profile.facebook }}"><img src="https://img.icons8.com/color/96/000000/facebook.png"></a>
+        </div>
+        </div>
+        <div class="edit-profile">
+        <a href="/home/profile/edit_profile"><button class="edit-profile-btn" name="edit-profile-btn">Редкация на профила</button></a>
+        </div>
+    </div>
+    
+{% endblock %}
+</div>
+<footer>
+<div class="footer-bs">
+</div>
+<p>Copyright &copy; 2019 | Изработен от Христо Тодоров и Янис Якимов | Проект №560 за НОИТ</p>
+</footer>
+</body>
+</html>

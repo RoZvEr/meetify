@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/login-register-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Meetify</title>
+</head>
+<body>
+{% block content %}
+    <div class="bs">
+    </div>
+ <div class="signup-form">
+  <h2>Регистрация</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="signup-form-text">
+        <input type="text" id="username" name="username" placeholder="Потребителско име">
+        <br>
+        <br>
+        <br>
+        <input type="email" id="email" name="email" placeholder="Имейл">
+        <br>
+        <br>
+        <br>
+        <input type="password" id="password1" name="password1" placeholder="Парола">
+        <br>
+        <br>
+        <br>
+        <input type="password" id="password2" name="password2" placeholder="Потвърдете паролата">
+        <br>
+
+    </div>
+      <div class="signup-errors">
+          <p>{{form.email.errors}}
+          {{form.username.errors}}
+          {{form.password1.errors}}
+          {{form.password2.errors}}
+          </p>
+      </div>
+      <div class="btn">
+    <button type="submit" class="submit">Регистрирай се</button>
+    <h4>Вече имаш акаунт ?</h4>
+      <h4><a href="/login">Влез в профила си</a></h4>
+    <br>
+    <br>
+    </div>  
+  </form>
+    </div>
+{% endblock %}

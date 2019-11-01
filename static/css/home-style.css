@@ -1,0 +1,144 @@
+body {
+    margin:0 auto;
+    font-family: sans-serif;
+}
+header {
+  overflow: hidden;
+  background-color: #60bf64;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 20px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+header a:hover {
+  background-color: white;
+  color: black;
+}
+
+.header-right {
+  float: right;
+  margin-right: 3.5%;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
+@media screen and (max-width: 800px) {
+    header a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  .header-right {
+    float: none;
+  }
+  
+}
+.footer-bs {
+    height: 45px;;
+}
+footer {
+    width: 100%;
+    color: white;
+    background-color: #60bf64;
+    font-size: 15pt;
+    bottom: 0;
+    height: 400px;
+    
+}
+form.search input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  max-width: 500px;
+} 
+
+
+.submit {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background-color: #60bf64;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  max-width: 100px;
+}
+
+.search-div {
+    text-align: center;
+    margin: 0 auto;;
+    width: 700px;
+    margin-bottom: 100px;
+}
+
+footer p{
+    text-align: center;
+    padding: 135px;
+}
+.bs {
+    height: 200px;
+}
+.seach img {
+    width: 36px;
+    height: 36px;
+}
+.display-users {
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+    padding: 50px;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+.display-users a{
+    text-decoration: none;
+    font-weight: normal;
+}
+.display-users a:visited{
+    color: black;
+}
+.display-users a{
+    color: inherit;
+    text-decoration: none;
+}
+.user-info a {
+    font-weight: none;
+    text-decoration: none;
+    color: inherit;
+}
+.avatar img {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+}
+.user-info {
+    margin-bottom: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+hr {
+    width: 80%;
+    height: 1.5px;
+    color: #60bf64;
+    background-color: #60bf64;
+        
+}

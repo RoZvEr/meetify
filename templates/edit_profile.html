@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/edit_profile-style.css">
+    <meta name="keywords" content="meetify, programming, meet, people, work">
+    <meta name="application-name" content="meetify">
+    <meta name="authors" content="hristo todorov, yanis yakimov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Meetify</title>
+</head>
+<body>
+{% block content %}
+<header>
+        <a href="#default" class="logo">MEETIFY</a>
+        <div class="header-right">
+        <a href="{% url 'home' %}">НАЧАЛО</a>
+        <a href="{% url 'my_profile' %}">МОЯТ ПРОФИЛ</a>
+        <a href="{% url 'logout' %}">ИЗХОД</a>
+  </div>
+</header>
+<div class="wrapper">
+  <h2>Редакция на профила</h2>  
+  <div class="edit-profile-form">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="basic-info">
+        <h3>Аватар</h3>
+        <input class="avatar" type="file" name="avatar" id="avatar">
+        <br>
+        <h3>Име</h3>
+        <input type="text" name="first_name" value="{{user.profile.first_name}}" placeholder="Име">
+        <br>
+        <h3>Име</h3>
+        <input type="text" name="last_name" value="{{user.profile.last_name}}" placeholder="Фамилия">
+        <br>
+        <br>
+        <br>
+            <strong>Пол:</strong> {{ form.gender }}
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <strong>Статус:</strong> {{ form.status }}
+        <br>
+        <br>
+        <h3>Обща информация</h3>
+        <textarea placeholder="Въведете неща за себе си: кой сте вие, с какво се занимавате, какво харесвате и всичко друго, за което се сетите" name="bio">{{ user.profile.bio }}</textarea>
+        <br>
+        <h3>Любими технологии</h3>
+        <input type="text" name="tags" value="{{user.profile.tags}}" placeholder="html, css, java, python">
+        <br>
+        </div>
+        <div class="social">
+        <h3>Уебсайт</h3>
+        <input type="url" name="website" value="{{user.profile.website}}" placeholder="Въведете URL адрес на сайта Ви">
+        <br>
+        <h3>GitHub</h3>
+        <input type="url" name="github" value="{{user.profile.github}}"  placeholder="https://github.com/YourUsername">
+        <br>
+        <h3>LinkedIn</h3>
+        <input type="url" name="linkedin" value="{{user.profile.linkedin}}" placeholder="https://www.linkedin.com/YourLinkedin">
+        <br>
+        <h3>Facebook</h3>
+        <input type="url" name="facebook" value="{{user.profile.facebook}}" placeholder="https://www.facebook.com/YourFacebook">
+        </div>
+        <div class="errors">
+            {{ form.first_name.errors }}
+            {{ form.last_name.errors }}
+            {{ form.bio.errors }}
+            {{ form.tags.errors }}
+            {{ form.status.errors }}
+            {{ form.website.errors }}
+            {{ form.github.errors }}
+            {{ form.linkedin.errors }}
+            {{ form.facebook.errors }}
+
+        </div>
+    <button type="submit" class="submit">Промени</button>
+  </form>
+</div>
+</div>
+<footer>
+<div class="footer-bs">
+</div>
+<p>Copyright &copy; 2019 | Изработен от Христо Тодоров и Янис Якимов | Проект №560 за НОИТ</p>
+</footer>
+{% endblock %}
+</body>
+</html>
